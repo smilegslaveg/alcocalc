@@ -170,23 +170,39 @@
   z-index: 9999;
 }
 
-.rf-uncheccked{
+.rf-uncheccked {
+  display: none;
+}
+
+.rf-uncheccked-bottom {
   display: none;
 } 
 
-.rf-void{
+.rf-uncheccked-header {
+  display: none;
+} 
+
+.rf-void {
   display: none;
 }
 
-.rrf-checked{
+.rrf-checked {
   display: none;
 }
 
-.C-mg-kg-sample-example-void{
+.rrf-checked-bottom {
   display: none;
 }
 
-.C-mg-l-AA-sample-example-void{
+.rrf-checked-header {
+  display: none;
+}
+
+.C-mg-kg-sample-example-void {
+  display: none;
+}
+
+.C-mg-l-AA-sample-example-void {
   display: none;
 }
 
@@ -194,7 +210,23 @@
   display: none;
 }
 
-.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED{
+.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED {
+  display: none;
+}
+
+.c-mg-l-AN-SAMPLE-CHECKED-bottom {
+  display: none;
+}
+
+.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom {
+  display: none;
+}
+
+.c-mg-l-AN-SAMPLE-CHECKED-header {
+  display: none;
+}
+
+.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header {
   display: none;
 }
 

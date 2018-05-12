@@ -12,23 +12,36 @@ function userCheckboxOnChange(e) {
   console.log('Checkbox1 checked:', (e.target.checked)); 
   var secondCheckbox =  $('.rc-checkbox-checked.tab-user-checkbox'); 
   if ( e.target.checked == true) {    
-    $('.rf-checcked').hide();       
-    $('.rrf').hide();    
+    $('.rf-checcked').hide();
+    $('.rf-checcked-header').hide();          
+    $('.rrf').hide();
+    $('.rrf-header').hide();     
     $('.rf-uncheccked').show();
-    $('.rrf-checked ').show();    
+    $('.rf-uncheccked-header').show();    
+    $('.rrf-checked').show();
+    $('.rrf-checked-header').show();     
     if (secondCheckbox.length == 0){
       $('.c-mg-l-AN-SAMPLE-CHECKED').hide();
       $('.c-mg-l-AN-SAMPLE-UNCHECKED').hide();
       $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED').show();
+      $('.c-mg-l-AN-SAMPLE-CHECKED-header').hide();
+      $('.c-mg-l-AN-SAMPLE-UNCHECKED-header').hide();
+      $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header').show();
     }      
   } else {
-    $('.rf-checcked').show();   
+    $('.rf-checcked').show(); 
+    $('.rf-checcked-header').show();   
     $('.rrf').show();
+    $('.rrf-header').show();
     $('.rf-uncheccked').hide();
-    $('.rrf-checked ').hide();
+    $('.rf-uncheccked-header').hide();    
+    $('.rrf-checked').hide();
+    $('.rrf-checked-header').hide();    
     if (secondCheckbox.length == 0){
       $('.c-mg-l-AN-SAMPLE-UNCHECKED').show();   
       $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED').hide(); 
+      $('.c-mg-l-AN-SAMPLE-UNCHECKED-header').show();   
+      $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header').hide();
     }     
   }
 } 
@@ -39,10 +52,15 @@ function tabUserCheckboxOnChange(e) {
   if ( e.target.checked == true) {    
     $('.c-mg-l-AN-SAMPLE-CHECKED').show();
     $('.c-mg-l-AN-SAMPLE-UNCHECKED').hide();
-    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED').hide();    
+    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED').hide(); 
+    $('.c-mg-l-AN-SAMPLE-CHECKED-header').show();
+    $('.c-mg-l-AN-SAMPLE-UNCHECKED-header').hide();
+    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header').hide();    
   } else {
     $('.c-mg-l-AN-SAMPLE-CHECKED').hide();
-    $('.c-mg-l-AN-SAMPLE-UNCHECKED').show();      
+    $('.c-mg-l-AN-SAMPLE-UNCHECKED').show();
+    $('.c-mg-l-AN-SAMPLE-CHECKED-header').hide();
+    $('.c-mg-l-AN-SAMPLE-UNCHECKED-header').show();      
   }
     
 }
@@ -186,15 +204,15 @@ export default class App extends Component {
       'C30': {key: 'C30', value: '0', expr: '', className: 'c-user-mg-kg user-input'},
       'C31': {key: 'C31', value: '0', expr: '', className: 'c-user-mg-kg user-input'},
       'C32': {key: 'C32', value: '26.8599332955507', expr: '', className: 'c-user-mg-kg user-input internal-standart'},
-      'C33': {key: 'C33', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'}, 
-      'C34': {key: 'C34', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'}, 
-      'C35': {key: 'C35', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'}, 
-      'C36': {key: 'C36', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},
-      'C37': {key: 'C37', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},  
-      'C38': {key: 'C38', value: '', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},
-      'C39': {key: 'C39', value: '', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},
-      'C40': {key: 'C40', value: '', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},
-      'C41': {key: 'C41', value: '', expr: '', readOnly: true, className: 'c-user-mg-kg user-input'},
+      'C33': {key: 'C33', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'C34': {key: 'C34', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'C35': {key: 'C35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'C36': {key: 'C36', value: ' ', expr: '', readOnly: true, className: ''},
+      'C37': {key: 'C37', value: ' ', expr: '', readOnly: true, className: ''},  
+      'C38': {key: 'C38', value: '', expr: '', readOnly: true, className: ''},
+      'C39': {key: 'C39', value: '', expr: '', readOnly: true, className: ''},
+      'C40': {key: 'C40', value: '', expr: '', readOnly: true, className: ''},
+      'C41': {key: 'C41', value: '', expr: '', readOnly: true, className: ''},
     
       
       'D2': {key: 'D2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className: 'column-header'},
@@ -228,15 +246,15 @@ export default class App extends Component {
       'D30': {key: 'D30', value: 0*0.94806*2.5, expr: '=C30*0.94806*2.5', valueViewer: this.cellValueViewer, readOnly: true, className: 'c-mg-l'},
       'D31': {key: 'D31', value: 0*0.94806*2.5, expr: '=C31*0.94806*2.5', valueViewer: this.cellValueViewer, readOnly: true, className: 'c-mg-l'},
       'D32': {key: 'D32', value: 26.8599332955507*0.94806*2.5, expr: '=C32*0.94806*2.5', valueViewer: this.cellValueViewer, readOnly: true, className: 'c-mg-l internal-standart'},
-      'D33': {key: 'D33', value: ' ', expr: '', readOnly: true, className: 'c-mg-l'}, 
-      'D34': {key: 'D34', value: ' ', expr: '', readOnly: true, className: 'c-mg-l'}, 
-      'D35': {key: 'D35', value: ' ', expr: '', readOnly: true, className: 'c-mg-l'}, 
-      'D36': {key: 'D36', value: ' ', expr: '', readOnly: true, className: 'c-mg-l'},
-      'D37': {key: 'D37', value: ' ', expr: '', readOnly: true, className: 'c-mg-l'},   
-      'D38': {key: 'D38', value: '', expr: '', readOnly: true, className: 'c-mg-l'},
-      'D39': {key: 'D39', value: '', expr: '', readOnly: true, className: 'c-mg-l'},
-      'D40': {key: 'D40', value: '', expr: '', readOnly: true, className: 'c-mg-l'},
-      'D41': {key: 'D41', value: '', expr: '', readOnly: true, className: 'c-mg-l'},
+      'D33': {key: 'D33', value: '', expr: '', readOnly: true, className: ''}, 
+      'D34': {key: 'D34', value: '', expr: '', readOnly: true, className: ''}, 
+      'D35': {key: 'D35', value: '', expr: '', readOnly: true, className: ''}, 
+      'D36': {key: 'D36', value: '', expr: '', readOnly: true, className: ''},
+      'D37': {key: 'D37', value: '', expr: '', readOnly: true, className: ''},   
+      'D38': {key: 'D38', value: '', expr: '', readOnly: true, className: ''},
+      'D39': {key: 'D39', value: '', expr: '', readOnly: true, className: ''},
+      'D40': {key: 'D40', value: '', expr: '', readOnly: true, className: ''},
+      'D41': {key: 'D41', value: '', expr: '', readOnly: true, className: ''},
     
       
       'E2': {key: 'E2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className: 'column-header'},
@@ -270,15 +288,15 @@ export default class App extends Component {
       'E30': {key: 'E30', value: '0', expr: '', className: 'c-user-mg-l user-input'},
       'E31': {key: 'E31', value: '0', expr: '', className: 'c-user-mg-l user-input'}, 
       'E32': {key: 'E32', value: '0', expr: '', className: 'c-user-mg-l internal-standart'},
-      'E33': {key: 'E33', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-l user-input'}, 
-      'E34': {key: 'E34', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-l user-input'}, 
-      'E35': {key: 'E35', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-l user-input'}, 
-      'E36': {key: 'E36', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-l user-input'}, 
-      'E37': {key: 'E37', value: ' ', expr: '', readOnly: true, className: 'c-user-mg-l user-input'},
-      'E38': {key: 'E38', value: '', expr: '', readOnly: true, className: 'c-user-mg-l user-input'},
-      'E39': {key: 'E39', value: '', expr: '', readOnly: true, className: 'c-user-mg-l user-input'},
-      'E40': {key: 'E40', value: '', expr: '', readOnly: true, className: 'c-user-mg-l user-input'},
-      'E41': {key: 'E41', value: '', expr: '', readOnly: true, className: 'c-user-mg-l user-input'},
+      'E33': {key: 'E33', value: '', expr: '', readOnly: true, className: ''}, 
+      'E34': {key: 'E34', value: '', expr: '', readOnly: true, className: ''}, 
+      'E35': {key: 'E35', value: '', expr: '', readOnly: true, className: ''}, 
+      'E36': {key: 'E36', value: '', expr: '', readOnly: true, className: ''}, 
+      'E37': {key: 'E37', value: '', expr: '', readOnly: true, className: ''},
+      'E38': {key: 'E38', value: '', expr: '', readOnly: true, className: ''},
+      'E39': {key: 'E39', value: '', expr: '', readOnly: true, className: ''},
+      'E40': {key: 'E40', value: '', expr: '', readOnly: true, className: ''},
+      'E41': {key: 'E41', value: '', expr: '', readOnly: true, className: ''},
     
       
       'F2': {key: 'F2', value: 'Response', expr: '', readOnly: true, className: 'column-header'},
@@ -312,20 +330,20 @@ export default class App extends Component {
       'F30': {key: 'F30', value: '0', expr: '', className: 'response user-input'},
       'F31': {key: 'F31', value: '0', expr: '', className: 'response user-input'},
       'F32': {key: 'F32', value: '853.614780485634', expr: '', className: 'response user-input internal-standart'},
-      'F33': {key: 'F33', value: ' ', expr: '', readOnly: true, className: 'response user-input'}, 
-      'F34': {key: 'F34', value: ' ', expr: '', readOnly: true, className: 'response user-input'}, 
-      'F35': {key: 'F35', value: ' ', expr: '', readOnly: true, className: 'response user-input'}, 
-      'F36': {key: 'F36', value: ' ', expr: '', readOnly: true, className: 'response user-input'},
-      'F37': {key: 'F37', value: ' ', expr: '', readOnly: true, className: 'response user-input'}, 
-      'F38': {key: 'F38', value: '', expr: '', readOnly: true, className: 'response user-input'},
-      'F39': {key: 'F39', value: '', expr: '', readOnly: true, className: 'response user-input'},
-      'F40': {key: 'F40', value: '', expr: '', readOnly: true, className: 'response user-input'},
-      'F41': {key: 'F41', value: '', expr: '', readOnly: true, className: 'response user-input'},
+      'F33': {key: 'F33', value: '', expr: '', readOnly: true, className: ''}, 
+      'F34': {key: 'F34', value: '', expr: '', readOnly: true, className: ''}, 
+      'F35': {key: 'F35', value: '', expr: '', readOnly: true, className: ''}, 
+      'F36': {key: 'F36', value: '', expr: '', readOnly: true, className: ''},
+      'F37': {key: 'F37', value: '', expr: '', readOnly: true, className: ''}, 
+      'F38': {key: 'F38', value: '', expr: '', readOnly: true, className: ''},
+      'F39': {key: 'F39', value: '', expr: '', readOnly: true, className: ''},
+      'F40': {key: 'F40', value: '', expr: '', readOnly: true, className: ''},
+      'F41': {key: 'F41', value: '', expr: '', readOnly: true, className: ''},
     
       
       'H1': {key: 'H1', value: 'Ethanol', colSpan: 3, expr: '', readOnly: true, className:'group-header'},
-      'H2': {key: 'H2', value: 'RF', expr: '', readOnly: true, className: 'column-header rf-checcked'},
-      'H3': {key: 'H3', value: '', expr: '', readOnly: true, className:'hidden-row rf-checcked'},
+      'H2': {key: 'H2', value: 'RF', expr: '', readOnly: true, className: 'column-header rf-checcked-header'},
+      'H3': {key: 'H3', value: '', expr: '', readOnly: true, className:'hidden-row  rf-checcked-header'},
       'H4': {key: 'H4', value: 345.87/1241.59967059221, expr: '= F4==0 ? 0 : E4/F4', readOnly: true, className: 'rf-checcked'},
       'H5': {key: 'H5', value: '', expr: '= F5==0 ? 0 : E5/F5', readOnly: true, className: 'rf-checcked'},
       'H6': {key: 'H6', value: '', expr: '= F6==0 ? 0 : E6/F6', readOnly: true, className: 'rf-checcked'},
@@ -355,19 +373,19 @@ export default class App extends Component {
       'H30': {key: 'H30', value: '', expr: '= F30==0 ? 0 : E30/F30', readOnly: true, className: 'rf-checcked'},
       'H31': {key: 'H31', value: '', expr: '= F31==0 ? 0 : E31/F31', readOnly: true, className: 'rf-checcked'},
       'H32': {key: 'H32', value: '', expr: '= F32==0 ? 0 : E32/F32', readOnly: true, className: 'rf-checcked internal-standart'},
-      'H33': {key: 'H33', value: ' ', expr: '', readOnly: true, className: 'rf-checcked'}, 
-      'H34': {key: 'H34', value: ' ', expr: '', readOnly: true, className: 'rf-checcked'}, 
-      'H35': {key: 'H35', value: ' ', expr: '', readOnly: true, className: 'rf-checcked'}, 
-      'H36': {key: 'H36', value: ' ', expr: '', readOnly: true, className: 'rf-checcked'},
-      'H37': {key: 'H37', value: ' ', expr: '', readOnly: true, className: 'rf-checcked'}, 
-      'H38': {key: 'H38', value: '', expr: '', readOnly: true, className: 'rf-checcked'},
-      'H39': {key: 'H39', value: '', expr: '', readOnly: true, className: 'rf-checcked'},
-      'H40': {key: 'H40', value: '', expr: '', readOnly: true, className: 'rf-checcked'},
-      'H41': {key: 'H41', value: '', expr: '', readOnly: true, className: 'rf-checcked'},
+      'H33': {key: 'H33', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'H34': {key: 'H34', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'H35': {key: 'H35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'H36': {key: 'H36', value: ' ', expr: '', readOnly: true, className: ''},
+      'H37': {key: 'H37', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'H38': {key: 'H38', value: '', expr: '', readOnly: true, className: ''},
+      'H39': {key: 'H39', value: '', expr: '', readOnly: true, className: ''},
+      'H40': {key: 'H40', value: '', expr: '', readOnly: true, className: ''},
+      'H41': {key: 'H41', value: '', expr: '', readOnly: true, className: ''},
     
       
-      'I2': {key: 'I2', value: 'RF', expr: '', readOnly: true, className: 'column-header rf-uncheccked'},
-      'I3': {key: 'I3', value: '', expr: '', readOnly: true, className:'hidden-row rf-uncheccked'},
+      'I2': {key: 'I2', value: 'RF', expr: '', readOnly: true, className: 'column-header rf-uncheccked-header'},
+      'I3': {key: 'I3', value: '', expr: '', readOnly: true, className:'hidden-row rf-uncheccked-header'},
       'I4': {key: 'I4', value: 140.898*0.94806*2.5/1241.600, expr: '= F4==0 ? 0 : D4/F4', readOnly: true, className: 'rf-uncheccked'},
       'I5': {key: 'I5', value: '', expr: '= F5==0 ? 0 : D5/F5', readOnly: true, className: 'rf-uncheccked'},
       'I6': {key: 'I6', value: '', expr: '= F6==0 ? 0 : D6/F6', readOnly: true, className: 'rf-uncheccked'},
@@ -397,18 +415,18 @@ export default class App extends Component {
       'I30': {key: 'I30', value: '', expr: '= F30==0 ? 0 : D30/F30', readOnly: true, className: 'rf-uncheccked'},
       'I31': {key: 'I31', value: '', expr: '= F31==0 ? 0 : D31/F31', readOnly: true, className: 'rf-uncheccked'},
       'I32': {key: 'I32', value: 26.860*0.94806*2.5/853.615, expr: '= F32==0 ? 0 : D32/F32', readOnly: true, className: 'rf-uncheccked internal-standart'},
-      'I33': {key: 'I33', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked'}, 
-      'I34': {key: 'I34', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked'}, 
-      'I35': {key: 'I35', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked'}, 
-      'I36': {key: 'I36', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked'},
-      'I37': {key: 'I37', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked'}, 
-      'I38': {key: 'I38', value: '', expr: '', readOnly: true, className: 'rf-uncheccked'},
-      'I39': {key: 'I39', value: '', expr: '', readOnly: true, className: 'rf-uncheccked'},
-      'I40': {key: 'I40', value: '', expr: '', readOnly: true, className: 'rf-uncheccked'},
-      'I41': {key: 'I41', value: '', expr: '', readOnly: true, className: 'rf-uncheccked'},
+      'I33': {key: 'I33', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'}, 
+      'I34': {key: 'I34', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'}, 
+      'I35': {key: 'I35', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'}, 
+      'I36': {key: 'I36', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'},
+      'I37': {key: 'I37', value: ' ', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'}, 
+      'I38': {key: 'I38', value: '', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'},
+      'I39': {key: 'I39', value: '', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'},
+      'I40': {key: 'I40', value: '', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'},
+      'I41': {key: 'I41', value: '', expr: '', readOnly: true, className: 'rf-uncheccked-bottom'},
 
-      'J2': {key: 'J2', value: 'RRF exp.', expr: '', readOnly: true, className: 'column-header rrf'},
-      'J3': {key: 'J3', value: '', expr: '', readOnly: true, className:'hidden-row rrf'},
+      'J2': {key: 'J2', value: 'RRF exp.', expr: '', readOnly: true, className: 'column-header rrf-header'},
+      'J3': {key: 'J3', value: '', expr: '', readOnly: true, className:'hidden-row rrf-header'},
       'J4': {key: 'J4', value: 0.279/0.140, expr: '= H14==0 ? 0 : H4/H14', readOnly: true, className: 'rrf'},
       'J5': {key: 'J5', value: '', expr: '= H14==0 ? 0 : H5/H14', readOnly: true,  className: 'rrf'},
       'J6': {key: 'J6', value: '', expr: '= H14==0 ? 0 : H6/H14', readOnly: true, className: 'rrf'},
@@ -438,19 +456,19 @@ export default class App extends Component {
       'J30': {key: 'J30', value: '', expr: '= H14==0 ? 0 : H30/H14', readOnly: true, className: 'rrf'},
       'J31': {key: 'J31', value: '', expr: '= H14==0 ? 0 : H31/H14', readOnly: true, className: 'rrf'},
       'J32': {key: 'J32', value: '', expr: '', readOnly: true, className: 'rrf internal-standart'},
-      'J33': {key: 'J33', value: ' ', expr: '', readOnly: true, className: 'rrf'}, 
-      'J34': {key: 'J34', value: ' ', expr: '', readOnly: true, className: 'rrf'}, 
-      'J35': {key: 'J35', value: ' ', expr: '', readOnly: true, className: 'rrf'}, 
-      'J36': {key: 'J36', value: ' ', expr: '', readOnly: true, className: 'rrf'},
-      'J37': {key: 'J37', value: ' ', expr: '', readOnly: true, className: 'rrf'}, 
-      'J38': {key: 'J38', value: '', expr: '', readOnly: true, className: 'rrf'},
-      'J39': {key: 'J39', value: '', expr: '', readOnly: true, className: 'rrf'},
-      'J40': {key: 'J40', value: '', expr: '', readOnly: true, className: 'rrf'},
-      'J41': {key: 'J41', value: '', expr: '', readOnly: true, className: 'rrf'},
+      'J33': {key: 'J33', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'J34': {key: 'J34', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'J35': {key: 'J35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'J36': {key: 'J36', value: ' ', expr: '', readOnly: true, className: ''},
+      'J37': {key: 'J37', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'J38': {key: 'J38', value: '', expr: '', readOnly: true, className: ''},
+      'J39': {key: 'J39', value: '', expr: '', readOnly: true, className: ''},
+      'J40': {key: 'J40', value: '', expr: '', readOnly: true, className: ''},
+      'J41': {key: 'J41', value: '', expr: '', readOnly: true, className: ''},
 
      
-      'K2': {key: 'K2', value: 'RRF exp.', expr: '', readOnly: true, className: 'column-header rrf-checked'},
-      'K3': {key: 'K3', value: '', expr: '', readOnly: true, className:'hidden-row rrf-checked'},
+      'K2': {key: 'K2', value: 'RRF exp.', expr: '', readOnly: true, className: 'column-header rrf-checked-header'},
+      'K3': {key: 'K3', value: '', expr: '', readOnly: true, className:'hidden-row rrf-checked-header'},
       'K4': {key: 'K4', value: 0.269/0.140, expr: '= I14==0 ? 0 : I4/I14', readOnly: true, className: 'rrf-checked'},
       'K5': {key: 'K5', value: '', expr: '= I14==0 ? 0 : I5/I14', readOnly: true,  className: 'rrf-checked'},
       'K6': {key: 'K6', value: '', expr: '= I14==0 ? 0 : I6/I14', readOnly: true, className: 'rrf-checked'},
@@ -480,15 +498,15 @@ export default class App extends Component {
       'K30': {key: 'K30', value: '', expr: '= I14==0 ? 0 : I30/I14', readOnly: true, className: 'rrf-checked'},
       'K31': {key: 'K31', value: '', expr: '= I14==0 ? 0 : I31/I14', readOnly: true, className: 'rrf-checked'},
       'K32': {key: 'K32', value: 0.075/0.140, expr: '= I14==0 ? 0 : I32/I14', readOnly: true, className: 'rrf-checked internal-standart'},
-      'K33': {key: 'K33', value: ' ', expr: '', readOnly: true, className: 'rrf-checked'}, 
-      'K34': {key: 'K34', value: ' ', expr: '', readOnly: true, className: 'rrf-checked'}, 
-      'K35': {key: 'K35', value: ' ', expr: '', readOnly: true, className: 'rrf-checked'}, 
-      'K36': {key: 'K36', value: ' ', expr: '', readOnly: true, className: 'rrf-checked'},
-      'K37': {key: 'K37', value: ' ', expr: '', readOnly: true, className: 'rrf-checked'}, 
-      'K38': {key: 'K38', value: '', expr: '', readOnly: true, className: 'rrf-checked'},
-      'K39': {key: 'K39', value: '', expr: '', readOnly: true, className: 'rrf-checked'},
-      'K40': {key: 'K40', value: '', expr: '', readOnly: true, className: 'rrf-checked'},
-      'K41': {key: 'K41', value: '', expr: '', readOnly: true, className: 'rrf-checked'},
+      'K33': {key: 'K33', value: ' ', expr: '', readOnly: true, className: 'rrf-checked-bottom'}, 
+      'K34': {key: 'K34', value: ' ', expr: '', readOnly: true, className: 'rrf-checked-bottom'}, 
+      'K35': {key: 'K35', value: ' ', expr: '', readOnly: true, className: 'rrf-checked-bottom'}, 
+      'K36': {key: 'K36', value: ' ', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
+      'K37': {key: 'K37', value: ' ', expr: '', readOnly: true, className: 'rrf-checked-bottom'}, 
+      'K38': {key: 'K38', value: '', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
+      'K39': {key: 'K39', value: '', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
+      'K40': {key: 'K40', value: '', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
+      'K41': {key: 'K41', value: '', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
      
       'L2': {key: 'L2', value: 'RRF tab.', expr: '', readOnly: true, className: 'column-header'},
       'L3': {key: 'L3', value: '', expr: '', readOnly: true, className:'hidden-row'},
@@ -521,15 +539,15 @@ export default class App extends Component {
       'L30': {key: 'L30', value: 0.715, expr: '', className: 'rrf-tab user-input-rrf'},
       'L31': {key: 'L31', value: 0.559, expr: '', className: 'rrf-tab user-input-rrf'},
       'L32': {key: 'L32', value: '', expr: '', readOnly: true, className: 'rrf-tab internal-standart'},
-      'L33': {key: 'L33', value: ' ', expr: '', readOnly: true, className: 'rrf-tab'}, 
-      'L34': {key: 'L34', value: ' ', expr: '', readOnly: true, className: 'rrf-tab'}, 
-      'L35': {key: 'L35', value: ' ', expr: '', readOnly: true, className: 'rrf-tab'}, 
-      'L36': {key: 'L36', value: ' ', expr: '', readOnly: true, className: 'rrf-tab'},
-      'L37': {key: 'L37', value: ' ', expr: '', readOnly: true, className: 'rrf-tab'},    
-      'L38': {key: 'L38', value: '', expr: '', readOnly: true, className: 'rrf-tab'},
-      'L39': {key: 'L39', value: '', expr: '', readOnly: true, className: 'rrf-tab'},
-      'L40': {key: 'L40', value: '', expr: '', readOnly: true, className: 'rrf-tab'},
-      'L41': {key: 'L41', value: '', expr: '', readOnly: true, className: 'rrf-tab'},
+      'L33': {key: 'L33', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'L34': {key: 'L34', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'L35': {key: 'L35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'L36': {key: 'L36', value: ' ', expr: '', readOnly: true, className: ''},
+      'L37': {key: 'L37', value: ' ', expr: '', readOnly: true, className: ''},    
+      'L38': {key: 'L38', value: '', expr: '', readOnly: true, className: ''},
+      'L39': {key: 'L39', value: '', expr: '', readOnly: true, className: ''},
+      'L40': {key: 'L40', value: '', expr: '', readOnly: true, className: ''},
+      'L41': {key: 'L41', value: '', expr: '', readOnly: true, className: ''},
      
       
       'N1': {key: 'N1', value: 'Traditional IS', expr: '', colSpan: 2, readOnly: true, className:'group-header'},
@@ -564,15 +582,15 @@ export default class App extends Component {
       'N30': {key: 'N30', value: '', expr: '= F30==0 ? 0 : C30/F30', readOnly: true, className: 'rf-IS'},
       'N31': {key: 'N31', value: '', expr: '= F31==0 ? 0 : C31/F31', readOnly: true, className: 'rf-IS'},
       'N32': {key: 'N32', value: 26.860/853.615, expr: '= F32==0 ? 0 : C32/F32', readOnly: true, className: 'rf-IS internal-standart'},
-      'N33': {key: 'N33', value: ' ', expr: '', readOnly: true, className: 'rf-IS'}, 
-      'N34': {key: 'N34', value: ' ', expr: '', readOnly: true, className: 'rf-IS'}, 
-      'N35': {key: 'N35', value: ' ', expr: '', readOnly: true, className: 'rf-IS'}, 
-      'N36': {key: 'N36', value: ' ', expr: '', readOnly: true, className: 'rf-IS'},
-      'N37': {key: 'N37', value: ' ', expr: '', readOnly: true, className: 'rf-IS'}, 
-      'N38': {key: 'N38', value: '', expr: '', readOnly: true, className: 'rf-IS'},
-      'N39': {key: 'N39', value: '', expr: '', readOnly: true, className: 'rf-IS'},
-      'N40': {key: 'N40', value: '', expr: '', readOnly: true, className: 'rf-IS'},
-      'N41': {key: 'N41', value: '', expr: '', readOnly: true, className: 'rf-IS'},
+      'N33': {key: 'N33', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'N34': {key: 'N34', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'N35': {key: 'N35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'N36': {key: 'N36', value: ' ', expr: '', readOnly: true, className: ''},
+      'N37': {key: 'N37', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'N38': {key: 'N38', value: '', expr: '', readOnly: true, className: ''},
+      'N39': {key: 'N39', value: '', expr: '', readOnly: true, className: ''},
+      'N40': {key: 'N40', value: '', expr: '', readOnly: true, className: ''},
+      'N41': {key: 'N41', value: '', expr: '', readOnly: true, className: ''},
 
       
      
@@ -610,15 +628,15 @@ export default class App extends Component {
       'Q31': {key: 'Q31', value: '', expr: '= N32==0 ? 0 : N31/N32', readOnly: true, className: 'rrf-IS'},
       /* Additional fields */
       'Q32': {key: 'Q32', value: 0.031/0.031, expr: '=N32/N32', readOnly: true, className: 'rrf-IS internal-standart'},
-      'Q33': {key: 'Q33', value: '', expr:'', readOnly: true, className: 'rrf-IS'},
-      'Q34': {key: 'Q34', value: '', expr:'', readOnly: true, className: 'rrf-IS'},
-      'Q35': {key: 'Q35', value: '', expr:'', readOnly: true, className: 'rrf-IS'},
-      'Q36': {key: 'Q36', value: '', expr:'', readOnly: true, className: 'rrf-IS'},
-      'Q37': {key: 'Q37', value: '', expr:'', readOnly: true, className: 'rrf-IS'},
-      'Q38': {key: 'Q38', value: '', expr: '', readOnly: true, className: 'rrf-IS'},
-      'Q39': {key: 'Q39', value: '', expr: '', readOnly: true, className: 'rrf-IS'},
-      'Q40': {key: 'Q40', value: '', expr: '', readOnly: true, className: 'rrf-IS'},
-      'Q41': {key: 'Q41', value: '', expr: '', readOnly: true, className: 'rrf-IS'},
+      'Q33': {key: 'Q33', value: '', expr:'', readOnly: true, className: ''},
+      'Q34': {key: 'Q34', value: '', expr:'', readOnly: true, className: ''},
+      'Q35': {key: 'Q35', value: '', expr:'', readOnly: true, className: ''},
+      'Q36': {key: 'Q36', value: '', expr:'', readOnly: true, className: ''},
+      'Q37': {key: 'Q37', value: '', expr:'', readOnly: true, className: ''},
+      'Q38': {key: 'Q38', value: '', expr: '', readOnly: true, className: ''},
+      'Q39': {key: 'Q39', value: '', expr: '', readOnly: true, className: ''},
+      'Q40': {key: 'Q40', value: '', expr: '', readOnly: true, className: ''},
+      'Q41': {key: 'Q41', value: '', expr: '', readOnly: true, className: ''},
     
       'R1': {key: 'R1', value: 'ANALYZED SAMPLE:', expr: '', colSpan: 3, readOnly: true, className:'group-header'},
       'R2': {key: 'R2', value: 'Response  (pure sample)', expr: '', readOnly: true, className:'column-header-eth'},
@@ -651,7 +669,7 @@ export default class App extends Component {
       'R29': {key: 'R29', value: '0', expr: '', className: 'response pure-sample user-input'},
       'R30': {key: 'R30', value: '0', expr: '', className: 'response pure-sample user-input'},
       'R31': {key: 'R31', value: '0', expr: '', className: 'response pure-sample user-input'},
-      'R32': {key: 'R32', value: '', expr: '', readOnly: true, className: 'response pure-sample user-input internal-standart'},
+      'R32': {key: 'R32', value: '', expr: '', readOnly: true, className: 'pure-sample internal-standart'},
       /* Additional fields */
       'R33': {key: 'R33', value: 'M (sample), g', expr:'', readOnly: true, className: 'additional-header'},
       'R34': {key: 'R34', value: 'M (IS), g', expr:'', readOnly: true, className: 'additional-header'},
@@ -659,9 +677,9 @@ export default class App extends Component {
       'R36': {key: 'R36', value: 'Density, mg/L', expr:'', readOnly: true, className: 'additional-header'},
       'R37': {key: 'R37', value: 'ABV, (%)', expr:'', readOnly: true, className: 'additional-header'},
       'R38': {key: 'R38', value: '', expr: '', readOnly: true, className: 'additional-header'},
-      'R39': {key: 'R39', value: '', expr: '', readOnly: true, className: 'response pure-sample user-input'},
-      'R40': {key: 'R40', value: '', expr: '', readOnly: true, className: 'response pure-sample user-input'},
-      'R41': {key: 'R41', value: '', expr: '', readOnly: true, className: 'response pure-sample user-input'},
+      'R39': {key: 'R39', value: '', expr: '', readOnly: true, className: 'pure-sample'},
+      'R40': {key: 'R40', value: '', expr: '', readOnly: true, className: 'pure-sample'},
+      'R41': {key: 'R41', value: '', expr: '', readOnly: true, className: 'pure-sample'},
     
      
       'S2': {key: 'S2', value: 'Response  (sample + IS)', expr: '', readOnly: true, className:'column-header-IS'},
@@ -700,14 +718,14 @@ export default class App extends Component {
       'S35': {key: 'S35', value: '497.38', expr:'', className: 'additional-header'},
       'S36': {key: 'S36', value: '948060', expr:'', className: 'additional-header'},
       'S37': {key: 'S37', value: '40', expr: '', className: 'additional-header'},
-      'S38': {key: 'S38', value: '', expr: '', readOnly: true, className: 'response pure-sample-IS user-input'},
-      'S39': {key: 'S39', value: '', expr: '', readOnly: true, className: 'response pure-sample-IS user-input'},
-      'S40': {key: 'S40', value: '', expr: '', readOnly: true, className: 'response pure-sample-IS user-input'},
-      'S41': {key: 'S41', value: '', expr: '', readOnly: true, className: 'response pure-sample-IS user-input'},
+      'S38': {key: 'S38', value: '', expr: '', readOnly: true, className: 'pure-sample-IS'},
+      'S39': {key: 'S39', value: '', expr: '', readOnly: true, className: 'pure-sample-IS'},
+      'S40': {key: 'S40', value: '', expr: '', readOnly: true, className: 'pure-sample-IS'},
+      'S41': {key: 'S41', value: '', expr: '', readOnly: true, className: 'pure-sample-IS'},
     
       
-      'T2': {key: 'T2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-CHECKED'},
-      'T3': {key: 'T3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-CHECKED'},
+      'T2': {key: 'T2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-CHECKED-header'},
+      'T3': {key: 'T3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-CHECKED-header'},
       'T4': {key: 'T4', value: 1.290*121.688*789300/7013036.800, expr: '= R14==0 ? 0 : 1.290*R4*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
       'T5': {key: 'T5', value: '', expr: '= R14==0 ? 0 : 1.410*R5*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
       'T6': {key: 'T6', value: '', expr: '= R14==0 ? 0 : 1.030*R6*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
@@ -737,19 +755,19 @@ export default class App extends Component {
       'T30': {key: 'T30', value: '', expr: '= R14==0 ? 0 : 0.715*R30*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
       'T31': {key: 'T31', value: '', expr: '= R14==0 ? 0 : 0.559*R31*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
       'T32': {key: 'T32', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED internal-standart'},
-      'T33': {key: 'T33', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'}, 
-      'T34': {key: 'T34', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'}, 
-      'T35': {key: 'T35', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'}, 
-      'T36': {key: 'T36', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
-      'T37': {key: 'T37', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
-      'T38': {key: 'T38', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
-      'T39': {key: 'T39', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
-      'T40': {key: 'T40', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
-      'T41': {key: 'T41', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED'},
+      'T33': {key: 'T33', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'}, 
+      'T34': {key: 'T34', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'}, 
+      'T35': {key: 'T35', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'}, 
+      'T36': {key: 'T36', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
+      'T37': {key: 'T37', value: ' ', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
+      'T38': {key: 'T38', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
+      'T39': {key: 'T39', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
+      'T40': {key: 'T40', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
+      'T41': {key: 'T41', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-bottom'},
     
      
-      'U2': {key: 'U2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U3': {key: 'U3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-UNCHECKED'},
+      'U2': {key: 'U2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-UNCHECKED-header'},
+      'U3': {key: 'U3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-UNCHECKED-header'},
       'U4': {key: 'U4', value: 1.921*121.688*789300/7013036.800, expr: '=K4*R4*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
       'U5': {key: 'U5', value: '', expr: '= R14==0 ? 0 : K5*R5*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
       'U6': {key: 'U6', value: '', expr: '= R14==0 ? 0 : K6*R6*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
@@ -779,19 +797,19 @@ export default class App extends Component {
       'U30': {key: 'U30', value: '', expr: '= R14==0 ? 0 : K30*R30*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
       'U31': {key: 'U31', value: '', expr: '= R14==0 ? 0 : K31*R31*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
       'U32': {key: 'U32', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED internal-standart'},
-      'U33': {key: 'U33', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U34': {key: 'U34', value: '', expr: '', readOnly: true, className:'c-mg-l-AN-SAMPLE-UNCHECKED'}, 
-      'U35': {key: 'U35', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'}, 
-      'U36': {key: 'U36', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U37': {key: 'U37', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U38': {key: 'U38', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U39': {key: 'U39', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U40': {key: 'U40', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
-      'U41': {key: 'U41', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-UNCHECKED'},
+      'U33': {key: 'U33', value: '', expr: '', readOnly: true, className: ''},
+      'U34': {key: 'U34', value: '', expr: '', readOnly: true, className:''}, 
+      'U35': {key: 'U35', value: '', expr: '', readOnly: true, className: ''}, 
+      'U36': {key: 'U36', value: '', expr: '', readOnly: true, className: ''},
+      'U37': {key: 'U37', value: '', expr: '', readOnly: true, className: ''},
+      'U38': {key: 'U38', value: '', expr: '', readOnly: true, className: ''},
+      'U39': {key: 'U39', value: '', expr: '', readOnly: true, className: ''},
+      'U40': {key: 'U40', value: '', expr: '', readOnly: true, className: ''},
+      'U41': {key: 'U41', value: '', expr: '', readOnly: true, className: ''},
     
       
-      'V2': {key: 'V2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V3': {key: 'V3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
+      'V2': {key: 'V2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className:'column-header c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header'},
+      'V3': {key: 'V3', value: '', expr: '', readOnly: true, className:'hidden-row c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-header'},
       'V4': {key: 'V4', value: 1.990*121.688*789300/7013036.800, expr: '=J4*R4*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
       'V5': {key: 'V5', value: '', expr: '= R14==0 ? 0 : J5*R5*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
       'V6': {key: 'V6', value: '', expr: '= R14==0 ? 0 : J6*R6*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
@@ -821,15 +839,15 @@ export default class App extends Component {
       'V30': {key: 'V30', value: '', expr: '= R14==0 ? 0 : J30*R30*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
       'V31': {key: 'V31', value: '', expr: '= R14==0 ? 0 : J31*R31*789300/R14', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
       'V32': {key: 'V32', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED internal-standart'},
-      'V33': {key: 'V33', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V34': {key: 'V34', value: '', expr: '', readOnly: true, className:'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'}, 
-      'V35': {key: 'V35', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'}, 
-      'V36': {key: 'V36', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V37': {key: 'V37', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V38': {key: 'V38', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V39': {key: 'V39', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V40': {key: 'V40', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
-      'V41': {key: 'V41', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED'},
+      'V33': {key: 'V33', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V34': {key: 'V34', value: '', expr: '', readOnly: true, className:'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'}, 
+      'V35': {key: 'V35', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'}, 
+      'V36': {key: 'V36', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V37': {key: 'V37', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V38': {key: 'V38', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V39': {key: 'V39', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V40': {key: 'V40', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
+      'V41': {key: 'V41', value: '', expr: '', readOnly: true, className: 'c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED-bottom'},
 
       'W1': {key: 'W1', value: 'Whiskey sample #4', expr: '', colSpan: 2, className:'group-header'},
       'W2': {key: 'W2', value: 'Concentration,  mg/kg', expr: '', readOnly: true, className:'column-header'},
@@ -863,16 +881,16 @@ export default class App extends Component {
       'W30': {key: 'W30', value: '', expr: '= (S32*R33)==0 ? 0 : Q30*S30*R34*R35/(S32*R33)', readOnly: true, className: 'C-mg-kg-sample-example'},
       'W31': {key: 'W31', value: '', expr: '= (S32*R33)==0 ? 0 : Q31*S31*R34*R35/(S32*R33)', readOnly: true, className: 'C-mg-kg-sample-example'},
       'W32': {key: 'W32', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example internal-standart'},
-      'W33': {key: 'W33', value: ' ', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
+      'W33': {key: 'W33', value: ' ', expr: '', readOnly: true, className: ''},
        /* FROM INTERNAL LIST 1*/
-      'W34': {key: 'W34', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W35': {key: 'W35', value: ' ', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'}, 
-      'W36': {key: 'W36', value: ' ', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W37': {key: 'W37', value: ' ', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W38': {key: 'W38', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W39': {key: 'W39', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W40': {key: 'W40', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
-      'W41': {key: 'W41', value: '', expr: '', readOnly: true, className: 'C-mg-kg-sample-example'},
+      'W34': {key: 'W34', value: '', expr: '', readOnly: true, className: ''},
+      'W35': {key: 'W35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'W36': {key: 'W36', value: ' ', expr: '', readOnly: true, className: ''},
+      'W37': {key: 'W37', value: ' ', expr: '', readOnly: true, className: ''},
+      'W38': {key: 'W38', value: '', expr: '', readOnly: true, className: ''},
+      'W39': {key: 'W39', value: '', expr: '', readOnly: true, className: ''},
+      'W40': {key: 'W40', value: '', expr: '', readOnly: true, className: ''},
+      'W41': {key: 'W41', value: '', expr: '', readOnly: true, className: ''},
     
         
      
@@ -907,16 +925,16 @@ export default class App extends Component {
       'Y30': {key: 'Y30', value: '', expr: '= R38==0 ? - : W20*R36/(10000*R38)', readOnly: true, className: 'C-mg-l-AA-sample-example'},
       'Y31': {key: 'Y31', value: '', expr: '= R38==0 ? - : W31*R36/(10000*R38)', readOnly: true, className: 'C-mg-l-AA-sample-example'},
       'Y32': {key: 'Y32', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example internal-standart'},
-      'Y33': {key: 'Y33', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
+      'Y33': {key: 'Y33', value: '', expr: '', readOnly: true, className: ''},
       /* FROM INTERNAL LIST 2*/
-      'Y34': {key: 'Y34', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y35': {key: 'Y35', value: ' ', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'}, 
-      'Y36': {key: 'Y36', value: ' ', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y37': {key: 'Y37', value: ' ', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y38': {key: 'Y38', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y39': {key: 'Y39', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y40': {key: 'Y40', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
-      'Y41': {key: 'Y41', value: '', expr: '', readOnly: true, className: 'C-mg-l-AA-sample-example'},
+      'Y34': {key: 'Y34', value: '', expr: '', readOnly: true, className: ''},
+      'Y35': {key: 'Y35', value: ' ', expr: '', readOnly: true, className: ''}, 
+      'Y36': {key: 'Y36', value: ' ', expr: '', readOnly: true, className: ''},
+      'Y37': {key: 'Y37', value: ' ', expr: '', readOnly: true, className: ''},
+      'Y38': {key: 'Y38', value: '', expr: '', readOnly: true, className: ''},
+      'Y39': {key: 'Y39', value: '', expr: '', readOnly: true, className: ''},
+      'Y40': {key: 'Y40', value: '', expr: '', readOnly: true, className: ''},
+      'Y41': {key: 'Y41', value: '', expr: '', readOnly: true, className: ''},
       
     }  
 } 
@@ -1008,7 +1026,22 @@ export default class App extends Component {
   }
 
   clearAll (e){
-    $('.user-input span').text("0");
+    $('.user-input:not(.ethanol)').text("0");
+    $('.c-mg-l:not(.ethanol)').text("0");
+    $('.user-input-rrf:not(.ethanol)').text("0");
+    $('.response:not(.ethanol)').text("0");
+    $('.rf-checcked:not(.ethanol)').text("0");
+    $('.rf-uncheccked:not(.ethanol)').text("0");
+    $('.rrf:not(.ethanol)').text("0");
+    $('.rrf-checked:not(.ethanol)').text("0");
+    $('.rf-IS:not(.ethanol)').text("0");
+    $('.rrf-IS:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-CHECKED:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-UNCHECKED:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED:not(.ethanol)').text("0"); 
+    $('.C-mg-kg-sample-example:not(.ethanol)').text("0"); 
+    $('.C-mg-l-AA-sample-example:not(.ethanol)').text("0");   
+     
     console.log("click");
   }
 
