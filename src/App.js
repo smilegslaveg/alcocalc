@@ -167,7 +167,7 @@ export default class App extends Component {
     
       'C1': {key: 'C1', value: '"C" (according EC 2870/2000) ', expr: '', colSpan: 4, readOnly: true, className:'group-header'},
       'C2': {key: 'C2', value: 'Concentration,  mg/kg', expr: '', readOnly: true, className:'column-header'},
-      'C3': {key: 'C3', value: '', expr: '', className:'hidden-row'},
+      'C3': {key: 'C3', value: '', expr: '', readOnly: true, className:'hidden-row'},
       'C4': {key: 'C4', value: '140.898232356557', expr: '', className: 'c-user-mg-kg user-input'},
       'C5': {key: 'C5', value: '0', expr: '', className: 'c-user-mg-kg user-input'},
       'C6': {key: 'C6', value: '0', expr: '', className: 'c-user-mg-kg user-input'},
@@ -209,7 +209,7 @@ export default class App extends Component {
     
       
       'D2': {key: 'D2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className: 'column-header'},
-      'D3': {key: 'D3', value: '', expr: '', className:'hidden-row'},
+      'D3': {key: 'D3', value: '', expr: '', readOnly: true, className:'hidden-row'},
       'D4': {key: 'D4', value: 140.898232356557 * 0.94806 * 2.5, valueViewer: this.cellValueViewer, expr: '=C4*0.94806*2.5', readOnly: true, className: 'c-mg-l'},
       'D5': {key: 'D5', value: 0*0.94806*2.5, expr: '=C5*0.94806*2.5 ', valueViewer: this.cellValueViewer, readOnly: true, className: 'c-mg-l'},
       'D6': {key: 'D6', value: 0*0.94806*2.5, expr: '=C6*0.94806*2.5', valueViewer: this.cellValueViewer, readOnly: true, className: 'c-mg-l'},
@@ -293,7 +293,7 @@ export default class App extends Component {
     
       
       'F2': {key: 'F2', value: 'Response', expr: '', readOnly: true, className: 'column-header'},
-      'F3': {key: 'F3', value: '', expr: '', className:'hidden-row'},
+      'F3': {key: 'F3', value: '', expr: '', readOnly: true, className:'hidden-row'},
       'F4': {key: 'F4', value: '1241.59967059221', expr: '', className: 'response user-input'},
       'F5': {key: 'F5', value: '0', expr: '', className: 'response user-input'},
       'F6': {key: 'F6', value: '0', expr: '', className: 'response user-input'},
@@ -633,7 +633,7 @@ export default class App extends Component {
     
       'R1': {key: 'R1', value: 'ANALYZED SAMPLE:', expr: '', colSpan: 3, readOnly: true, className:'group-header'},
       'R2': {key: 'R2', value: 'Response  (pure sample)', expr: '', readOnly: true, className:'column-header-eth'},
-      'R3': {key: 'R3', value: '', expr: '', className:'hidden-row'},
+      'R3': {key: 'R3', value: '', expr: '', readOnly: true, className:'hidden-row'},
       'R4': {key: 'R4', value: '121.688', expr: '', className: 'response pure-sample user-input'},
       'R5': {key: 'R5', value: '0', expr: '', className: 'response pure-sample user-input'},
       'R6': {key: 'R6', value: '0', expr: '', className: 'response pure-sample user-input'},
@@ -676,7 +676,7 @@ export default class App extends Component {
     
      
       'S2': {key: 'S2', value: 'Response  (sample + IS)', expr: '', readOnly: true, className:'column-header-IS'},
-      'S3': {key: 'S3', value: '', expr: '', className:'hidden-row'},
+      'S3': {key: 'S3', value: '', expr: '', readOnly: true, className:'hidden-row'},
       'S4': {key: 'S4', value: '112.806', expr: '', className: 'response pure-sample-IS user-input'},
       'S5': {key: 'S5', value: '0', expr: '', className: 'response pure-sample-IS user-input'},
       'S6': {key: 'S6', value: '0', expr: '', className: 'response pure-sample-IS user-input'},
@@ -1034,21 +1034,21 @@ export default class App extends Component {
   }
 
   clearAll (e){
-    $('.user-input:not(.ethanol)').text("0");
-    $('.c-mg-l:not(.ethanol)').text("0");
-    $('.user-input-rrf:not(.ethanol)').text("0");
-    $('.response:not(.ethanol)').text("0");
-    $('.rf-checcked:not(.ethanol)').text("0");
-    $('.rf-uncheccked:not(.ethanol)').text("0");
-    $('.rrf:not(.ethanol)').text("0");
-    $('.rrf-checked:not(.ethanol)').text("0");
-    $('.rf-IS:not(.ethanol)').text("0");
-    $('.rrf-IS:not(.ethanol)').text("0");
-    $('.c-mg-l-AN-SAMPLE-CHECKED:not(.ethanol)').text("0");
-    $('.c-mg-l-AN-SAMPLE-UNCHECKED:not(.ethanol)').text("0");
-    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED:not(.ethanol)').text("0"); 
-    $('.C-mg-kg-sample-example:not(.ethanol)').text("0"); 
-    $('.C-mg-l-AA-sample-example:not(.ethanol)').text("0");   
+    $('.user-input span:not(.ethanol)').text("0");
+    $('.c-mg-l span:not(.ethanol)').text("0");
+    $('.user-input-rrf span:not(.ethanol)').text("0");
+    $('.response span:not(.ethanol)').text("0");
+    $('.rf-checcked span:not(.ethanol)').text("0");
+    $('.rf-uncheccked span:not(.ethanol)').text("0");
+    $('.rrf span:not(.ethanol)').text("0");
+    $('.rrf-checked span:not(.ethanol)').text("0");
+    $('.rf-IS span:not(.ethanol)').text("0");
+    $('.rrf-IS span:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-CHECKED span:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-UNCHECKED span:not(.ethanol)').text("0");
+    $('.c-mg-l-AN-SAMPLE-CHECKED-UNCHECKED span:not(.ethanol)').text("0"); 
+    $('.C-mg-kg-sample-example span:not(.ethanol)').text("0"); 
+    $('.C-mg-l-AA-sample-example span:not(.ethanol)').text("0");   
      
     console.log("click");
   }
