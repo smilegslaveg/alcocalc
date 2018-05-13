@@ -4,7 +4,6 @@ import './App.css';
 import _ from 'lodash';
 import mathjs from 'mathjs';
 import Datasheet from 'react-datasheet/lib/DataSheet';
-import 'react-datasheet/lib/react-datasheet.css'; 
 import Checkbox from 'rc-checkbox';
 import $ from "jquery";
  
@@ -72,12 +71,6 @@ export default class App extends Component {
             // console.log(i);
 
             // return cell.expr;
-
-            // if(this.state[cell.value]) {
-                  
-            //       return this.state[cell.value].value;
-            // }
-
             return cell.value;
       }
 
@@ -130,7 +123,7 @@ export default class App extends Component {
       
     
       'B2': {key: 'B2', value: 'Compound', expr: '', readOnly: true, className:'column-header'},
-      'B3': {key: 'B3', value: '', expr: '', readOnly: true, className:'hidden-row'},
+      'B3': {key: 'B3', value: '', expr: '', readOnly: true, className:'hidden-row', forceComponent: true, component: (<input type="button" value="Clear All" onClick={this.clearAll}></input>)},
       'B4': {key: 'B4', value: 'acetaldehyde', expr: '', readOnly: true,  className:'compound-column'},
       'B5': {key: 'B5', value: 'isobutyraldehyde', expr: '', readOnly: true, className:'compound-column'},
       'B6': {key: 'B6', value: 'ethyl formate', expr: '', readOnly: true, className:'compound-column'},
@@ -258,7 +251,7 @@ export default class App extends Component {
     
       
       'E2': {key: 'E2', value: 'Concentration,  mg/L AA', expr: '', readOnly: true, className: 'column-header'},
-      'E3': {key: 'E3', value: '', expr: '', className:'hidden-row'},
+      'E3': {key: 'E3', value: "checkbox", expr:'', className:'hidden-row', readOnly: true, forceComponent: true, component: ( <input type="checkbox" readOnly="true" onChange={userCheckboxOnChange} />)},
       'E4': {key: 'E4', value: '345.87', expr: '', className: 'c-user-mg-l user-input'},
       'E5': {key: 'E5', value: '0', expr: '', className: 'c-user-mg-l user-input'},
       'E6': {key: 'E6', value: '0', expr: '', className: 'c-user-mg-l user-input'},
@@ -509,7 +502,7 @@ export default class App extends Component {
       'K41': {key: 'K41', value: '', expr: '', readOnly: true, className: 'rrf-checked-bottom'},
      
       'L2': {key: 'L2', value: 'RRF tab.', expr: '', readOnly: true, className: 'column-header'},
-      'L3': {key: 'L3', value: '', expr: '', readOnly: true, className:'hidden-row'},
+      'L3': {key: 'L3', value: '', expr: '', readOnly: true, className:'hidden-row', forceComponent: true, component: ( <input type="checkbox" readOnly="true" onChange={tabUserCheckboxOnChange} />)},
       'L4': {key: 'L4', value: 1.290, expr: '', readOnly: true, className: 'rrf-tab'},
       'L5': {key: 'L5', value: 1.410, expr: '', readOnly: true,  className: 'rrf-tab'},
       'L6': {key: 'L6', value: 1.030, expr: '', readOnly: true, className: 'rrf-tab'},
@@ -942,7 +935,7 @@ export default class App extends Component {
 
 
   generateGrid() {
-    const grid = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41].map((row, i) => 
+    const grid = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37].map((row, i) => 
     ['', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'I', 'J', 'K', 'L', 'N', 'Q', 'R', 'S', 'T', 'U', 'V', 'W','Y'].map((col, j) => {       
       const cols = ['B', 'D', 'E', 'F', 'I', 'J', 'K','L', 'Q', 'S', 'T', 'U', 'Y'];
 
@@ -958,7 +951,9 @@ export default class App extends Component {
         } 
         if(j === 0) {
           return {readOnly: true, value: row}
-        }
+        } 
+            
+           
         return this.state[col + row] || null
       })
     );
@@ -974,7 +969,7 @@ export default class App extends Component {
 
   validateExp(trailKeys, expr) {
     let valid = true;
-    const matches = expr.match(/[A-Z][0-9]+/g) || [];
+    const matches = expr.match(/[A-Z][0-9]+/g) || []; // /[0-9]|\./
     matches.map(match => {
       if(trailKeys.indexOf(match) > -1) {
         valid = false
@@ -985,10 +980,23 @@ export default class App extends Component {
     return valid
   }
 
+
+  changeToValid(val){
+    let matches = val.match(/[0-9]|\./g) || [];
+    let result = ''
+    if (matches.length>0) {
+      for (var i in matches) {
+        result += matches[i];
+      }
+      return result;
+    }
+      return "0"
+  }
+
   computeExpr(key, expr, scope) {
     let value = null;
-    if(expr.charAt(0) !== '=') {
-      return {value: expr, expr: expr};
+    if(expr.charAt(0) !== '=') {      
+      return {value: this.changeToValid(expr), expr:  this.changeToValid(expr)};
     } else {
       try {
         value = mathjs.eval(expr.substring(1), scope)
@@ -1084,18 +1092,6 @@ export default class App extends Component {
               dataRenderer={dataRender}
                onCellsChanged={this.onCellsChanged}>
             </Datasheet> 
-          </tr>
-          <tr>
-            <Checkbox id="checkbox1" className='user-checkbox'
-                onChange={userCheckboxOnChange} />
-          </tr>
-          <tr>
-          <Checkbox id="checkbox1" className='tab-user-checkbox'
-                onChange={tabUserCheckboxOnChange} />
-          </tr>
-          <tr><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script></tr>
-          <tr>
-            <input type="button" value="Clear All" onClick={this.clearAll}></input>
           </tr>
         </tbody>
       </table>     
